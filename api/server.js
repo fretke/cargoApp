@@ -76,5 +76,5 @@ app.post("/AddToDock", (req, res) => {
 });
 
 function getRandomNumber(){
-    return Math.round(Math.random() * 5);
+    return Math.round(Math.random() * 10);
 }
