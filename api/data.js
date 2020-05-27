@@ -5,7 +5,7 @@ const USER_NAME = "Demo";
 
 mongoose.set('useFindAndModify', false);
 
-mongoose.connect("mongodb://localhost:27017/AnotherDemo", {
+mongoose.connect("mongodb+srv://admin-fretke:test.123@cluster0-hncei.mongodb.net/test?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
