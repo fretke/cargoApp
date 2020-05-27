@@ -1,0 +1,2 @@
+export const SERVICE_NOT_AVAILABLE = "503 - Service not available. The server is temporarily down and data might not be saved - please reload the page."
+export const INTERNAL_SERVER_ERROR = "500 - Internal server error. Not able to load required data. Out team is working on fixing the issue and the application will be up and running in a few hours."
