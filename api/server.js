@@ -27,7 +27,6 @@ app.post("/GetInitData", (req, res) => {
         return;
     }
     dataBase.getUserData(req.body.userGuid, (response) => {
-        console.log("received response from database by server " + response)
         res.send(JSON.stringify(response));
     });
 });
