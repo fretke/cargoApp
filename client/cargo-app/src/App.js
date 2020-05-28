@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import ShipArea from "./components/ShipArea";
 import DockArea from "./components/DockArea";
+import Loading from "./components/Material-UI/Loading"
 
 import ErrorPop from "./components/ErrorPop"
 import HTML5Backend from 'react-dnd-html5-backend';
@@ -41,7 +42,9 @@ function App() {
     getInitData().then((data) => {
       dispatch(getShips(data.ships));
       dispatch(getDock(data.dock.cargoItems));
-      setDataLoaded(true);
+      setTimeout(() => {
+        setDataLoaded(true);
+      }, 1000);
     }).catch(err => {
       setDataLoaded(false);
     });
@@ -56,6 +59,10 @@ function App() {
               <ShipArea />
               <DockArea />
           </div>
+        )}
+        {!dataLoaded && (
+          <Loading />
+
         )}
         <ErrorPop />
         </div>

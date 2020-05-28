@@ -3,6 +3,7 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   font-family: 'Montserrat', sans-serif;
   text-align: center;
+  color: #222831;
 }
 
 h1{
@@ -43,7 +44,7 @@ h6{
 
 .ship-area h1{
   padding: 0 0 20px;
-  color: white;
+  color: #eeeeee;
 }
 
 /* SHIP STYLE */
@@ -57,14 +58,18 @@ h6{
   font-size: 0.7rem;
   padding: 2px 0;
 }
+.ship-details h5{
+  margin: 0;
+  padding: 15px 0 0;
+}
 .ship-name p{
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
 .ship-drop-zone{
   background-color: #57686A;
-  border: 4px dashed #f37121;
+  border: 4px dashed #393e46;
 }
 
 /* CARGO ITEMS */
@@ -101,13 +106,13 @@ h6{
  
 }
 .dock-drop-zone{
-  border: 4px dashed #f37121;
+  border: 4px dashed #393e46;
   background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
 }
 
 .controls{
   border-right-style: groove;
-  height: 200px;
+  height: 250px;
   padding-top: 20px
 }
 
@@ -151,3 +156,14 @@ input{
 ::-webkit-scrollbar-thumb:hover {
   background: #ffffff; 
 }
+
+.bootstrap-container{
+  padding: 0;
+}
+
+/* .make-invisible{
+  position: absolute;
+ background-color: red;
+  visibility: hidden;
+} */
+/* MATERIAL UI */

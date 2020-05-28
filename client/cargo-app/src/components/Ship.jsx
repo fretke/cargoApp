@@ -73,7 +73,6 @@ function Ship(props){
             <div className="card text-white bg-secondary mb-3">
                 <ShipDetails ship={props.currentShip}/>
                     <div className="card-body ship-cargo">
-                        <h5 className="card-title">CARGO</h5>
                             <div className = "container">
                                 <div className = "row">
                                     {ship.cargoItems.map((cargoItem, index) => {

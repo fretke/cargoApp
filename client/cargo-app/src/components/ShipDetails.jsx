@@ -58,6 +58,7 @@ function ShipDetails(props){
                         </div>
                     </div>
                 </div>
+                <h5>CARGO</h5>
         </div>
     )
 }

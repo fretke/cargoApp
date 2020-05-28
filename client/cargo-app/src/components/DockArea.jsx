@@ -11,6 +11,8 @@ import { SERVICE_NOT_AVAILABLE } from "../utils/errorMessages"
 import AddIcon from '@material-ui/icons/Add';
 import IconButton from '@material-ui/core/IconButton';
 
+import gsap from "gsap";
+
 
 
 function DockArea(){
@@ -59,7 +61,13 @@ function DockArea(){
             <div className = "row"> 
                 <div className = "col-lg-2 controls">
                 {!createDialog && (
-                    <IconButton onClick = {() => dispatch(openCreateDialog())}>
+                    <IconButton onClick = {() =>{ 
+                        dispatch(openCreateDialog());
+                        setTimeout(()=>{
+                            gsap.fromTo("#addCargo", 0.5, {scale:0.1}, {scale: 1, ease: "back"});
+                        }, 1)
+                        
+                        }}>
                         <AddIcon />
                      </IconButton>
                 )}
