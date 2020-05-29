@@ -33,7 +33,7 @@ export default function Loading() {
   return (
     <div style={{textAlign:"center"}}>
             <div className={classes.root}>
-                <CircularProgress color="secondary" variant="determinate" value={progress} />
+                <CircularProgress color="primary" variant="determinate" value={progress} />
             </div>
         <LoadingMessage />
     </div>

@@ -86,21 +86,14 @@ export default function AddCargo(){
                 <input onChange = {updateInput} type="text" className="form-control" placeholder = "volume" name = "volume" value = {newCargo.volume} autoComplete = "off"/>
             </div>
 
-            <Zoom in={validInput}>
-                    <Fab className={classes.button} size="small" color="primary">
-                        <IconButton  onClick = {() => addNewToApi(newCargo)}>
+                {validInput && (
+                    <IconButton  onClick = {() => addNewToApi(newCargo)}>
                             <DoneIcon />
                         </IconButton>
-                    </Fab>
-                </Zoom>
-            
-            <Zoom in={dialogOpen}>
-                <Fab className={classes.button} size="small" color="primary">
+                )}
                     <IconButton  onClick = {closeDialog}>
                         <CloseIcon />
                     </IconButton>
-                </Fab>
-            </Zoom>
            
             
         </div>

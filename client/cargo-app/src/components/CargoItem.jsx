@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import DoneIcon from '@material-ui/icons/Done';
 import CloseIcon from '@material-ui/icons/Close';
 import BorderAllIcon from '@material-ui/icons/BorderAll';
-import IconButton from '@material-ui/core/IconButton';
+import {IconButton, Typography} from '@material-ui/core';
 
 import { useDrag } from "react-dnd";
 import { useDispatch } from "react-redux";
@@ -84,23 +84,25 @@ function CargoItem(props){
 
     function dragInit () {
         if (props.type === "dock-cargo"){
-            document.querySelectorAll(".card-body").forEach((element) => {
-                element.classList.add("ship-drop-zone");
+            document.querySelectorAll(".card-body").forEach((element, index) => {
+                setTimeout(() => {
+                    gsap.to(element, 0.5, {backgroundColor:"#57686A", border: "4px dashed #393e46"}, "-=${0.25*index}");
+                }, 100*index);
+                
             })
-            document.querySelector(`#${props.id}`).classList.add("make-invisible");
         } else {
-            document.querySelector(".dock-cargo").classList.add("dock-drop-zone");
+            gsap.to(".dock-cargo", 0.5, {backgroundImage:` url("https://www.transparenttextures.com/patterns/always-grey.png")`, border: "4px dashed #393e46"});
         }
     }
 
     function dragStop(){
         if (props.type === "dock-cargo"){
             document.querySelectorAll(".card-body").forEach((element) => {
-                element.classList.remove("ship-drop-zone");
+                gsap.to(element, 0.5, {backgroundColor:"#6C7D81", border: "4px solid transparent"});
+     
             });
-            document.querySelector(`#${props.id}`).classList.remove("make-invisible");
         } else {
-            document.querySelector(".dock-cargo").classList.remove("dock-drop-zone");
+            gsap.to(".dock-cargo", 0.5, {backgroundImage: "none", border: "4px solid transparent"});
         }
     }
 
@@ -124,11 +126,15 @@ function CargoItem(props){
             <div ref = {drag} onClick={animateInModifyDialog} className = "container">
                 <div className = "row cargo-item-container">
                     <div className = "col-6">
-                        <h6>{cargo.volume + " m3"}</h6>
+                    <Typography variant="body2">
+                            {cargo.volume + " m3"}
+                    </Typography>
+
                     </div>
                     <div className = "col-6">
-                      
-                        <h6>{cargo.weight + " kg"}</h6>
+                    <Typography variant="body2">
+                    {cargo.weight + " kg"}
+                    </Typography>
                     </div>
                 </div>
             </div>

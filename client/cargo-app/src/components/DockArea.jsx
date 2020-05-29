@@ -9,7 +9,7 @@ import { addCargoDock, deleteCargoShip, openCreateDialog, openErrorWindow } from
 import { SERVICE_NOT_AVAILABLE } from "../utils/errorMessages"
 
 import AddIcon from '@material-ui/icons/Add';
-import IconButton from '@material-ui/core/IconButton';
+import {IconButton, Typography} from '@material-ui/core';
 
 import gsap from "gsap";
 
@@ -57,7 +57,9 @@ function DockArea(){
 
     return (
         <div ref= {drop} className = "container-fluid dock-area">
-            <h1>DOCK</h1>
+            <Typography className = "mui-heading-dock" variant="h2"> 
+                DOCK
+            </Typography>
             <div className = "row"> 
                 <div className = "col-lg-2 controls">
                 {!createDialog && (

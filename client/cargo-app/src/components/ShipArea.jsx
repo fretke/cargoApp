@@ -1,5 +1,6 @@
 import React from "react";
 import Ship from "./Ship";
+import { Typography } from '@material-ui/core';
 
 import { useSelector } from "react-redux";
 
@@ -9,7 +10,10 @@ function ShipArea(props){
 
     return (
         <div className="container-fluid ship-area">
-            <h1>SHIPS</h1>
+            <Typography className = "m-ui-heading" variant="h2"> 
+                SHIPS
+            </Typography>
+            {/* <h1>SHIPS</h1> */}
             <div className = "container">
                 <div className = "row">
                     {ships.map((ship => {

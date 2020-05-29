@@ -1,5 +1,9 @@
 import React from "react";
 
+import theme from "./Material-UI/theme";
+
+import { Typography, LinearProgress } from '@material-ui/core';
+
 function ShipDetails(props){
 
     const ship = props.ship;
@@ -21,13 +25,11 @@ function ShipDetails(props){
     }
 
     function getIndicatorColor(percentage){
-        let style = "progress-bar";
-            if (percentage >= 90){
-                style+=" bg-danger";
-            } else if (percentage >= 50){
-                style+=" bg-warning";
+        let style = "";
+            if (percentage >= 80){
+                style+="secondary";
             } else {
-                style+=" bg-success";
+                style+="primary";
             }
             return style;
     }
@@ -41,24 +43,33 @@ function ShipDetails(props){
                 <div className = "container">
                     <div className = "row">
                         <div className = "col-12 col-sm-5 col-md-5 col-lg-5 ship-name">
-                            <p>{getName()}</p>
+                        <Typography variant="h6">
+                            {getName()}
+                        </Typography>
                         </div>
                         <div className = "col-12 col-sm-7 col-md-7 col-lg-7">
 
-                            <p>{remainder.volume + " | " + ship.maxVolume + " m3" }</p>
-                                <div className="progress">
+                        <Typography variant="body1">
+                            {remainder.volume + " | " + ship.maxVolume + " m3" }
+                        </Typography>
+                        <LinearProgress color={getIndicatorColor(remainder.volPercent)} variant="determinate" value={remainder.volPercent} />
+                                {/* <div className="progress">
                                     <div className={getIndicatorColor(remainder.volPercent)} role="progressbar" style={{width: remainder.volPercent + "%"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                </div> */}
+                                <Typography variant="body1">
+                                {remainder.weight + " | " + ship.maxWeight + " kg"}
+                                </Typography>
+                                <LinearProgress color={getIndicatorColor(remainder.weightPercent)} variant="determinate" value={remainder.weightPercent} />
 
-                                <p>{remainder.weight + " | " + ship.maxWeight + " kg"}</p>
-
-                                <div className="progress">
+                                {/* <div className="progress">
                                     <div className={getIndicatorColor(remainder.weightPercent)} role="progressbar" style={{width: remainder.weightPercent + "%"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                </div> */}
                         </div>
                     </div>
                 </div>
-                <h5>CARGO</h5>
+                <Typography variant="subtitle1">
+                    Cargo
+                </Typography>
         </div>
     )
 }
